@@ -61,7 +61,7 @@ http
       };
 
       function getText(data) {
-        const arr = data.block.map((item) =>
+        const arr = data?.block.map((item) =>
           item.line.map((lineItem) =>
             lineItem.word.map((wordItem) => wordItem.content)
           )
