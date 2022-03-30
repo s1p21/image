@@ -104,7 +104,7 @@ http
         if (err) {
           log.error(err);
         }
-        let res = JSON.parse(body);
+        let res = JSON.parse(body || "{}");
         if (res.code != 0) {
           log.error(
             `发生错误，错误码：${res.code} 错误原因：${res.desc} sid：${res.sid}`
