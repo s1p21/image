@@ -6,13 +6,37 @@
     body{text-align:center;} 
     form{display:block;border:1px solid black;padding:20px;} 
 </style>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.js"></script>
+<script>
+    $(document).ready(function(){
+        $("#upload").click(function(){
+            console.log('jkjjkjk')
+            var formData = new FormData($("#uploadForm")[0]);
+            console.log(formData);
+            $.ajax({
+                url: "/fileupload",
+                type: "POST",
+                data: formData,
+                async: false,
+                cache: false,
+                contentType: false,
+                processData: false,
+                success: function(data){
+                    console.log(data)
+                    $("#result").html(data);
+                }
+            });
+        });
+    });
+</script>
 </head>
 <body>
-    <h1>Upload files to Node.js Server</h1>
+    <h1>Upload files to Node.js Server pxy</h1>
  
     <form action="fileupload" method="post" enctype="multipart/form-data">
         <input type="file" name="filetoupload">
         <input type="submit" value="Upload">
     </form>
+    <div id="result"></div>
 </body>
 </html
